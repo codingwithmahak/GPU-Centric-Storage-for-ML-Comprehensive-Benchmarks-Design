@@ -1,0 +1,17 @@
+{
+  "dataset_size": 141,
+  "n_features": 11,
+  "n_benchmark_types": 3,
+  "target_range": [
+    1.0996598427759587,
+    48210.993803866666
+  ],
+  "target_skewness": 2.503863921694538,
+  "pca_n_components": 11,
+  "pca_variance_pc1": 0.19002483077371096,
+  "pca_variance_first_2": 0.3571176566288993,
+  "pca_n_for_80pct": 7,
+  "pca_n_for_95pct": 9,
+  "high_corr_pairs": 8,
+  "missing_data_pct": 51.85648727576137
+}

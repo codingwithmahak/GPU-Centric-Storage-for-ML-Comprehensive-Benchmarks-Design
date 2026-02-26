@@ -1,0 +1,174 @@
+{
+  "dataset_info": {
+    "n_samples": 141,
+    "n_features": 11,
+    "train_samples": 112,
+    "test_samples": 29
+  },
+  "regression_results": {
+    "Linear Regression": {
+      "test_r2": 0.6051337075973906,
+      "test_rmse": 1.4570329210504676,
+      "test_mae": 0.9721338731075138
+    },
+    "Ridge (\u03b1=1.0)": {
+      "test_r2": 0.6129950679138908,
+      "test_rmse": 1.4424560298860722,
+      "test_mae": 0.9511431838996289
+    },
+    "Lasso (\u03b1=0.1)": {
+      "test_r2": 0.6905675326447958,
+      "test_rmse": 1.2898145559286105,
+      "test_mae": 0.767825708809823
+    },
+    "ElasticNet": {
+      "test_r2": 0.6739084715766113,
+      "test_rmse": 1.324079591816784,
+      "test_mae": 0.7997161422432236
+    },
+    "Random Forest": {
+      "test_r2": 0.9836289543719147,
+      "test_rmse": 0.2966760875547079,
+      "test_mae": 0.14470126897793756
+    },
+    "XGBoost": {
+      "test_r2": 0.9910517522613785,
+      "test_rmse": 0.21933772433470933,
+      "test_mae": 0.1341931577566046
+    },
+    "Neural Network (MLP)": {
+      "test_r2": 0.13673801513515682,
+      "test_rmse": 2.154346928428678,
+      "test_mae": 0.9763891064609116
+    }
+  },
+  "best_regression_model": {
+    "name": "XGBoost",
+    "test_r2": 0.9910517522613785,
+    "test_rmse": 0.21933772433470933,
+    "mean_pct_error": 11.811357639253396,
+    "median_pct_error": 8.074034301474226
+  },
+  "cross_validation": {
+    "XGBoost": {
+      "mean_cv_r2": 0.9655658389087121,
+      "std_cv_r2": 0.016436921615298042
+    },
+    "Random Forest": {
+      "mean_cv_r2": 0.9790563643585426,
+      "std_cv_r2": 0.009965917666895485
+    },
+    "Lasso (\u03b1=0.1)": {
+      "mean_cv_r2": 0.7049262621341391,
+      "std_cv_r2": 0.05803611994910685
+    }
+  },
+  "feature_importance": {
+    "random_forest": [
+      {
+        "Feature": "throughput_mb_s",
+        "Importance": 0.5637277856495988
+      },
+      {
+        "Feature": "samples_per_second",
+        "Importance": 0.3083282804695199
+      },
+      {
+        "Feature": "block_kb",
+        "Importance": 0.06215769357795087
+      },
+      {
+        "Feature": "iops",
+        "Importance": 0.03571454540492696
+      },
+      {
+        "Feature": "batch_size",
+        "Importance": 0.025822694961699554
+      },
+      {
+        "Feature": "data_loading_ratio",
+        "Importance": 0.0027047530151734305
+      },
+      {
+        "Feature": "file_size_mb",
+        "Importance": 0.0006050334850867147
+      },
+      {
+        "Feature": "aggregate_throughput_mb_s",
+        "Importance": 0.0004983553887544934
+      },
+      {
+        "Feature": "n_samples",
+        "Importance": 0.00028765537359179107
+      },
+      {
+        "Feature": "n_threads",
+        "Importance": 0.00015320267369756322
+      },
+      {
+        "Feature": "num_workers",
+        "Importance": 0.0
+      }
+    ],
+    "xgboost": [
+      {
+        "Feature": "batch_size",
+        "Importance": 0.4569166898727417
+      },
+      {
+        "Feature": "throughput_mb_s",
+        "Importance": 0.2806990444660187
+      },
+      {
+        "Feature": "samples_per_second",
+        "Importance": 0.0830838605761528
+      },
+      {
+        "Feature": "block_kb",
+        "Importance": 0.06488721817731857
+      },
+      {
+        "Feature": "iops",
+        "Importance": 0.0605924092233181
+      },
+      {
+        "Feature": "n_samples",
+        "Importance": 0.01888202130794525
+      },
+      {
+        "Feature": "num_workers",
+        "Importance": 0.015429428778588772
+      },
+      {
+        "Feature": "data_loading_ratio",
+        "Importance": 0.013566626235842705
+      },
+      {
+        "Feature": "aggregate_throughput_mb_s",
+        "Importance": 0.0022898500319570303
+      },
+      {
+        "Feature": "file_size_mb",
+        "Importance": 0.002087936969473958
+      },
+      {
+        "Feature": "n_threads",
+        "Importance": 0.001564942067489028
+      }
+    ]
+  },
+  "classification_results": {
+    "Logistic Regression": {
+      "accuracy": 0.9310344827586207,
+      "f1_score": 0.9295019157088122
+    },
+    "Random Forest": {
+      "accuracy": 1.0,
+      "f1_score": 1.0
+    },
+    "XGBoost": {
+      "accuracy": 1.0,
+      "f1_score": 1.0
+    }
+  }
+}
