@@ -1,230 +1,241 @@
-# 🚀 AI-Powered API Monitoring & Anomaly Detection System
+# 🚀 GPU-Centric Storage for Machine Learning
 
-An intelligent monitoring and anomaly detection platform designed for large-scale, distributed API environments across on-premise, cloud, and multi-cloud infrastructures.
-
-This system combines observability tooling with machine learning to provide real-time monitoring, predictive analytics, automated alerts, and AI-driven root cause analysis.
+A community-driven project focused on optimizing storage performance for GPU-accelerated machine learning workloads. This repository provides comprehensive benchmarks, real-world experiments, and practical guidance to identify and eliminate storage bottlenecks in ML pipelines.
 
 ---
 
-## 🧠 Problem It Solves
+## 🎯 Overview
 
-Modern distributed API systems often struggle with:
-
-- Latency spikes
-- Sudden error rate increases
-- Hidden service dependencies
-- Delayed incident detection
-- Manual root cause analysis
-
-This platform delivers:
-
-- Intelligent anomaly detection
-- Predictive failure forecasting
-- Automated incident response
-- AI-generated Root Cause Analysis (RCA) reports
+Modern ML systems are often limited not by compute, but by data movement and storage performance. This project helps analyze, benchmark, and optimize I/O pipelines across different environments and frameworks.
 
 ---
 
-## 🚀 Key Features
+## 🔬 What This Project Provides
 
-### 🤖 AI Alert & Automation System
+* **Comprehensive Benchmarks**
+  Real-world analysis of I/O, ETL, and training pipelines
 
-- Automated phone alerts triggered by logs, metrics, and traces  
-- Voice-enabled incident reporting  
-- Automated recovery workflows  
-- On-demand AI-generated RCA reports  
+* **Multi-Platform Support**
+  Works on local systems, cloud environments, and distributed clusters
 
----
+* **GPU Acceleration Insights**
+  CPU vs GPU comparisons with optimization strategies
 
-### 🔍 Intelligent Root Cause Analysis
+* **Actionable Recommendations**
+  Performance tuning based on experimental results
 
-- Correlates logs, metrics, and traces  
-- Time-series forecasting using Prophet  
-- Real-time anomaly detection via Isolation Forest  
-- Automated RCA report generation  
-
----
-
-### 📊 Real-Time Observability Stack
-
-- Grafana dashboards for visualization  
-- Loki for centralized log aggregation  
-- Tempo for distributed tracing  
-- Mimir for long-term metrics storage  
+* **Production-Ready Tools**
+  Designed for real ML workflows and deployment scenarios
 
 ---
 
-### 🔥 Advanced Anomaly Detection
+## 🚀 Quick Start
 
-- Isolation Forest (unsupervised ML)  
-- Detects latency, error rate, and traffic anomalies  
-- Environment-aware alert thresholds  
-- Real-time anomaly scoring  
+### Option 1: Google Colab (Recommended)
 
----
-
-### 📈 Predictive Analytics
-
-- Prophet-based time-series forecasting  
-- Proactive alerting before failures occur  
-- Capacity planning insights  
-- Trend analysis and resource optimization  
+```python
+!git clone https://github.com/knkarthik01/gpu_storage_ml_project.git
+%cd gpu_storage_ml_project
+!pip install pandas numpy matplotlib pyspark pyarrow tqdm psutil
+```
 
 ---
 
-### 🧭 End-to-End API Tracking
-
-- Complete API request journey tracing  
-- Cross-service correlation  
-- Dependency mapping  
-- Bottleneck identification  
-
----
-
-## 🏗️ System Architecture
-
-
-**Observability Stack**
-- Loki (Logs)
-- Tempo (Traces)
-- Mimir (Metrics)
-
-**AI/ML Engine**
-- Prophet Forecasting
-- Isolation Forest Anomaly Detection
-
-**Alert System**
-- Phone Alerts
-- RCA Reports
-- Automated Recovery
-
----
-
-## 🛠️ Core Components
-
-- Node.js Express API (Telemetry Generator)
-- OpenTelemetry SDK & Collector
-- Grafana (Visualization)
-- Loki (Logs)
-- Tempo (Tracing)
-- Mimir (Metrics)
-- Prophet (Forecasting)
-- Isolation Forest (Anomaly Detection)
-- AI Alert System (Automation & RCA)
-
----
-
-## 📋 Prerequisites
-
-- Node.js (v16+)
-- Docker & Docker Compose
-- Python (v3.8+)
-- Twilio Account (for phone alerts)
-- Gemini API Key (for RCA generation)
-
----
-
-## 🚀 Setup Instructions
-
-### 1️⃣ Clone Repository
+### Option 2: Local Setup
 
 ```bash
-git clone <repository-url>
-cd ai-api-monitoring-system
+git clone https://github.com/knkarthik01/gpu_storage_ml_project.git
+cd gpu_storage_ml_project
 
-2️⃣ Install Dependencies
+conda env create -f environment.yml
+conda activate gpu-storage-ml
 
-npm install
-pip install -r requirements.txt
+jupyter lab
+```
 
-3️⃣ Configure Environment Variables
+---
 
-Create .env file:
-TWILIO_ACCOUNT_SID=your_sid
-TWILIO_AUTH_TOKEN=your_token
-TWILIO_PHONE_NUMBER=your_number
-GEMINI_API_KEY=your_key
-ALERT_PHONE_NUMBERS=+1234567890
-NODE_ENV=production
-API_PORT=8080
+### Option 3: AWS SageMaker
 
-4️⃣ Start Infrastructure
-docker-compose up -d
-docker-compose ps
+```bash
+git clone https://github.com/knkarthik01/gpu_storage_ml_project.git
+```
 
-5️⃣ Initialize Observability
-sleep 60
-./scripts/setup-dashboards.sh
-./scripts/setup-datasources.sh
-6️⃣ Start Services
+---
 
-npm start
+### Option 4: EMR Cluster
 
-python ai/anomaly_detector.py &
-python ai/prophet_forecaster.py &
-python ai/alert_system.py &
-python ai/rca_engine.py &
+```bash
+aws emr create-cluster --applications Name=Spark Name=Hadoop \
+--instance-type=g4dn.xlarge \
+--instance-count 3 \
+--bootstrap-actions Path=scripts/setup_emr.sh
+```
 
-🧪 Testing the System
-API Endpoints
+---
 
-curl http://localhost:8080/rolldice
-curl http://localhost:8080/health
-curl http://localhost:8080/error
-curl http://localhost:8080/heavy
-curl http://localhost:8080/db-query
+## 📚 Notebook Workflow
 
-Load Testing
-artillery run load-test.yml
-python scripts/load_test.py --duration 300 --rps 50
+Run notebooks in order:
 
-📊 Access Dashboards
+| Notebook                | Purpose                   |
+| ----------------------- | ------------------------- |
+| 00_environment_check    | System validation         |
+| 01_io_microbenchmarks   | Storage performance       |
+| 02_spark_etl_cpu_vs_gpu | ETL comparison            |
+| 03_training_throughput  | Data loading optimization |
+| 04_inference_latency    | Serving performance       |
+| 05_caching_strategies   | Storage tier tuning       |
+| 06_arrow_flight         | High-throughput serving   |
 
-Grafana:
-http://localhost:3000
-Default: admin / admin
+---
 
-Preconfigured dashboards include:
+## 🎮 GPU Acceleration Modules
 
-API Overview
+* Iceberg performance experiments
+* Snapshot-based reproducibility
+* Arrow Flight data pipelines
 
-Anomaly Detection
+---
 
-Predictive Analytics
+## 🌐 Supported Platforms
 
-Distributed Tracing
+* Local Development
+* Google Colab
+* AWS SageMaker
+* EMR Clusters
 
-Infrastructure Monitoring
+---
 
-📈 Key Metrics Monitored
+## 🛠️ Supported Frameworks
 
-Response Time (P50 / P95 / P99)
+### ML & Data Processing
 
-Error Rate (4xx / 5xx)
+* PyTorch
+* TensorFlow
+* Apache Spark
+* RAPIDS cuDF
 
-Request Throughput (RPS)
+### Data Loading
 
-Anomaly Scores
+* NVIDIA DALI
+* FFCV
+* WebDataset
+* Arrow Flight
+
+### Storage Formats
+
+* Apache Iceberg
+* Parquet / ORC
+* Delta Lake
+* Apache Arrow
+
+---
+
+## 📊 Key Features
+
+### Benchmarking
+
+* Sequential vs random I/O
+* Block size optimization
+* CPU vs GPU pipelines
+* Memory usage analysis
+
+### Visualization
+
+* Performance comparison charts
+* Scaling analysis
+* Resource utilization tracking
+
+### Optimization Insights
+
+* Platform-specific tuning
+* Framework recommendations
+* Cost vs performance trade-offs
+
+---
+
+## 📁 Project Structure
+
+```
+gpu_storage_ml_project/
+├── notebooks/        # Analysis notebooks
+├── src/bench/        # Benchmark utilities
+├── configs/          # Config files
+├── scripts/          # Automation scripts
+├── results/          # Outputs
+├── docs/             # Documentation
+├── experiments/      # Logs & experiments
+└── data/             # Sample datasets
+```
+
+---
+
+## 🎯 Research Goals
+
+* Analyze I/O bottlenecks across storage systems
+* Compare CPU vs GPU data processing pipelines
+* Evaluate data formats and access patterns
+* Design GPU-centric storage architectures
+* Provide practical optimization strategies
+
+---
+
+## 🚀 Advanced Features
+
+### Data Lakehouse Experiments
+
+* Apache Iceberg integration
+* Snapshot-based reproducibility
+
+### High-Throughput Serving
+
+* Arrow Flight pipelines
+* Zero-copy GPU data transfer
+
+### GPU Storage Optimization
+
+* GPUDirect Storage experiments
+* UCX networking
+* GPU memory tuning
+
+---
+
+## 🌟 Use Cases
+
+* ML training pipeline optimization
+* Data engineering performance tuning
+* Distributed GPU workloads
+* Storage benchmarking research
+* Production ML system design
+
+---
 
 
-Forecast Accuracy
 
-🤖 AI/ML Capabilities
-Prophet Forecasting
+## 📖 Research & Academic Use
 
-Traffic prediction
+* Reproducible benchmarking framework
+* Performance baselines
+* Experimental methodology
+* Storage system evaluation
 
-Latency forecasting
+---
 
-Capacity planning
+## 🏁 Getting Started Checklist
 
-Isolation Forest
+* Clone repository
+* Run environment check
+* Execute I/O benchmarks
+* Compare CPU vs GPU pipelines
+* Optimize training throughput
+* Analyze inference performance
+* Explore advanced modules
 
-Detects latency anomalies
+---
 
-Identifies unusual traffic patterns
+## 📄 License
 
-Flags error spikes
+MIT License
 
-Cross-service anomaly correlation
-
+---
